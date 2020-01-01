@@ -2,6 +2,9 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
+import QtQuick.Extras 1.4
+
+import StateEnum 1.0
 
 Window {
     visible: true
@@ -18,27 +21,34 @@ Window {
             Case_Coloree{
                 color : "red"
                 iconPath: "Images/alarm.png"
-                onClicked: AppManager.launchApp("Alarme");
+                onClicked: console.log("red button")//AppManager.launchApp(AppState.HOME);
             }
             Case_Coloree{
                 color: "green"
                 iconPath: "Images/console.png"
-                onClicked: AppManager.launchApp("Jeux");
+                onClicked: console.log("jeux button")//AppManager.launchApp(AppState.HOME);
             }
             Case_Coloree{
                 color: "yellow"
                 iconPath: "Images/youtube.png"
-                onClicked: AppManager.launchApp("Youtube");
+                onClicked: AppManager.launchApp(AppState.VIDEO);
             }
             Case_Coloree{
                 color: "blue"
                 iconPath: "Images/music-player.png"
-                onClicked: AppManager.launchApp("Musique");
+                onClicked: AppManager.launchApp(AppState.MUSIC);
             }
         }
-        Button{
-            text: "Reconnect"
-            onClicked: AppManager.connectTCP()
+        Row{
+            Button{
+                text: "Reconnect"
+                onClicked: AppManager.connectTCP()
+            }
+            StatusIndicator{
+
+            }
         }
+
+
     } // end mainLayout
 }

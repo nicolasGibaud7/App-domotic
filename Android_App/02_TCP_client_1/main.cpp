@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("AppManager", appManager);
+    qmlRegisterType<AppManager>("StateEnum",1,0,"AppState");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
