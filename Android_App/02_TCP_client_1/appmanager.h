@@ -13,8 +13,12 @@ public:
     explicit AppManager(QObject *parent = nullptr);
     ~AppManager();
 
-    Q_INVOKABLE void launchApp(QString message);
+    Q_INVOKABLE void launchApp(QString appName);
     Q_INVOKABLE void connectTCP();
+    Q_INVOKABLE bool writeTCP(QString message);
+
+public slots:
+    void receivedDataTCP();
 
 signals:
 
