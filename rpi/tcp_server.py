@@ -18,11 +18,9 @@ if __name__ == "__main__":
 
     while True:
         connection, client_address = sock.accept()
-        print(type(connection))
-        if type(connection) == "socket":
-            while True :
-                print("Connection from {} ".format(client_address))
-                data = connection.recv(16)
-                print("Data : ".format(data))
-            else:
-                connection.close()
+        while True :
+            print("Connection from {} ".format(client_address))
+            data = connection.recv(16)
+            print("Data : %s" % data)
+        else:
+            connection.close()
