@@ -4,6 +4,7 @@
 AppManager::AppManager(QObject *parent) : QObject(parent)
 {
     mp_socket = new QTcpSocket();
+    connectTCP();
 }
 
 AppManager::~AppManager()
