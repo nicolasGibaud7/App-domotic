@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Case_Coloree.qml</file>
+        <file>Images/alarm.png</file>
+        <file>Images/console.png</file>
+        <file>Images/music-player.png</file>
+        <file>Images/youtube.png</file>
+    </qresource>
+</RCC>
