@@ -1,5 +1,7 @@
 import socket
 import sys
+import os
+import subprocess
 
 IP_ADDR = "192.168.1.19"
 TCP_PORT = 10000
@@ -22,5 +24,10 @@ if __name__ == "__main__":
             print("Connection from {} ".format(client_address))
             data = connection.recv(16)
             print("Data : %s" % data)
+            if data == "Musique":
+                proc = subprocess.Popen(['ls', '/home/pi/Music'], stdout=subprocess.PIPE)
+                list_playlist = proc.stdout.read().split()
+                print(list_playlist)
+                connection.sendall(";".join(list_playlist))
         else:
             connection.close()
